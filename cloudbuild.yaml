@@ -1,0 +1,46 @@
+steps:
+  # Step 1: Compile the Java project
+  - name: 'maven:3.9.4-eclipse-temurin-17'
+    entrypoint: 'mvn'
+    args:
+      ['clean', 'package']
+
+  # Step 2: Build the Docker image
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      [
+        'build',
+        '-t',
+        'us-central1-docker.pkg.dev/gifted-chimera-443200-t6/my-repo/agendapro-challenge',
+        '.'
+      ]
+
+  # Step 3: Push the Docker Image to Artifact Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      [
+        'push',
+        'us-central1-docker.pkg.dev/gifted-chimera-443200-t6/my-repo/agendapro-challenge'
+      ]
+
+  # Step 4: Deploy to Cloud Run
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args:
+      [
+        'run',
+        'deploy',
+        'agendapro-challenge-app',
+        '--image',
+        'us-central1-docker.pkg.dev/gifted-chimera-443200-t6/my-repo/agendapro-challenge',
+        '--region',
+        'us-east1',
+        '--platform',
+        'managed',
+        '--allow-unauthenticated'
+      ]
+  
+options:
+  default_logs_bucket_behavior: REGIONAL_USER_OWNED_BUCKET
+
+images:
+  - 'us-central1-docker.pkg.dev/gifted-chimera-443200-t6/my-repo/agendapro-challenge'
