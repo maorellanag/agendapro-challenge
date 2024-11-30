@@ -1,5 +1,6 @@
 package com.agendapro.challenge.config;
 
+import com.agendapro.challenge.config.properties.BasicAuthProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
@@ -37,10 +38,10 @@ public class BasicAuthConfig {
     }
 
     @Bean
-    public InMemoryUserDetailsManager userDetailsManager(PasswordEncoder passwordEncoder) {
+    public InMemoryUserDetailsManager userDetailsManager(PasswordEncoder passwordEncoder, BasicAuthProperties authProperties) {
         UserDetails user = User.builder()
-                .username("admin")
-                .password(passwordEncoder.encode("admin"))
+                .username(authProperties.getUsername())
+                .password(passwordEncoder.encode(authProperties.getPassword()))
                 .build();
 
         return new InMemoryUserDetailsManager(user);
