@@ -38,6 +38,11 @@ Este proyecto ha sido desplegado en la nube usando el provedor Google Cloud Plat
 Siendo accesible desde la siguiente URL:
 - https://agendapro-challenge-app-13205890777.us-east1.run.app
 
+Una documentación básica de los endpoints disponibles puede encontrarse en la siguiente ruta
+- https://agendapro-challenge-app-13205890777.us-east1.run.app/swagger-ui/index.html
+
+![img.png](images/swagger.png)
+
 Ha sido desplegado mediante un pipeline CI/CD utilizando las siguientes tecnologías:
 - **Cloud Build:** Para construir el proyecto cuando se detecta un commit en la rama **main** de github.
 - **Cloud Run:** Para levantar un contenedor en base a la imagen Docker creada previamente con Cloud Build.
