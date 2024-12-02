@@ -6,6 +6,7 @@ import com.agendapro.challenge.service.ProductService;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 
 @RestController
@@ -51,5 +52,11 @@ public class ProductController {
     @GetMapping("/search-by-name/{name}")
     public List<Product> searchProductByName(@PathVariable String name) {
         return productService.findByName(name);
+    }
+
+    @Operation(summary = "Obtener estadísticas de uso")
+    @GetMapping("/statistics")
+    public HashMap<String, Integer> getStatistics() {
+        return productService.getStatistics();
     }
 }

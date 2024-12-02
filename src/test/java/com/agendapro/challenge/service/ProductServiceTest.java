@@ -23,6 +23,9 @@ class ProductServiceTest {
     @Mock
     private ProductRepository productRepository;
 
+    @Mock
+    private StatisticsService statisticsService;
+
     @InjectMocks
     private ProductService productService;
 
@@ -100,9 +103,9 @@ class ProductServiceTest {
     }
 
     @Test
-    void update_whenProductExists_thenReturnUpdatedProduct() throws ProductNotFoundException {
-        Product oldProduct = Product.builder().name("old").id(1L).build();
-        Product newProduct = Product.builder().name("new").id(2L).build();
+    void updateNameAndCategory_whenProductExists_thenReturnUpdatedProduct() throws ProductNotFoundException {
+        Product oldProduct = Product.builder().name("old").category("category1").id(1L).build();
+        Product newProduct = Product.builder().name("new").category("category2").id(2L).build();
 
         when(productRepository.findById(1L)).thenReturn(Optional.of(oldProduct));
         when(productRepository.save(any())).thenAnswer(invocation -> invocation.getArgument(0));
@@ -111,6 +114,8 @@ class ProductServiceTest {
 
         assertNotNull(updatedProduct);
         assertEquals("new", updatedProduct.getName());
+        verify(statisticsService).decreaseCounter("category1");
+        verify(statisticsService).increaseCounter("category2");
     }
 
     @Test
