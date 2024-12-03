@@ -1,0 +1,390 @@
+{
+	"info": {
+		"_postman_id": "1890acce-9004-4728-8878-cdb73ea4ff4e",
+		"name": "agendapro v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "bulk",
+			"item": [
+				{
+					"name": "created product from data.csv",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "hello",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "agendapro",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"{{name}}\",\r\n    \"description\": \"{{description}}\",\r\n    \"category\": \"{{category}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://agendapro-challenge-app-13205890777.us-east1.run.app/products",
+							"protocol": "https",
+							"host": [
+								"agendapro-challenge-app-13205890777",
+								"us-east1",
+								"run",
+								"app"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "create product",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "hello",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "agendapro",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"producto 1\",\r\n    \"description\": \"descripcion 1\",\r\n    \"category\": \"category1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://agendapro-challenge-app-13205890777.us-east1.run.app/products",
+					"protocol": "https",
+					"host": [
+						"agendapro-challenge-app-13205890777",
+						"us-east1",
+						"run",
+						"app"
+					],
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update product",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "hello",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "agendapro",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"producto 1\",\r\n    \"description\": \"una mejor descripcion\",\r\n    \"category\": \"category2\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://agendapro-challenge-app-13205890777.us-east1.run.app/products/12",
+					"protocol": "https",
+					"host": [
+						"agendapro-challenge-app-13205890777",
+						"us-east1",
+						"run",
+						"app"
+					],
+					"path": [
+						"products",
+						"12"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete product",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "hello",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "agendapro",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://agendapro-challenge-app-13205890777.us-east1.run.app/products/13",
+					"protocol": "https",
+					"host": [
+						"agendapro-challenge-app-13205890777",
+						"us-east1",
+						"run",
+						"app"
+					],
+					"path": [
+						"products",
+						"13"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get product by id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "hello",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "agendapro",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://agendapro-challenge-app-13205890777.us-east1.run.app/products/11",
+					"protocol": "https",
+					"host": [
+						"agendapro-challenge-app-13205890777",
+						"us-east1",
+						"run",
+						"app"
+					],
+					"path": [
+						"products",
+						"11"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get product by name",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "hello",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "agendapro",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://agendapro-challenge-app-13205890777.us-east1.run.app/search-by-name/mancuerna",
+					"protocol": "https",
+					"host": [
+						"agendapro-challenge-app-13205890777",
+						"us-east1",
+						"run",
+						"app"
+					],
+					"path": [
+						"search-by-name",
+						"mancuerna"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all products",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "hello",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "agendapro",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://agendapro-challenge-app-13205890777.us-east1.run.app/products",
+					"protocol": "https",
+					"host": [
+						"agendapro-challenge-app-13205890777",
+						"us-east1",
+						"run",
+						"app"
+					],
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get statistics",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "hello",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "agendapro",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://agendapro-challenge-app-13205890777.us-east1.run.app/statistics",
+					"protocol": "https",
+					"host": [
+						"agendapro-challenge-app-13205890777",
+						"us-east1",
+						"run",
+						"app"
+					],
+					"path": [
+						"statistics"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

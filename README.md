@@ -41,8 +41,14 @@ Siendo accesible desde la siguiente URL:
 Una documentación básica de los endpoints disponibles puede encontrarse en la siguiente ruta
 - https://agendapro-challenge-app-13205890777.us-east1.run.app/swagger-ui/index.html
 
-![img.png](images/swagger.png)
+![img.png](resources/swagger.png)
 
 Ha sido desplegado mediante un pipeline CI/CD utilizando las siguientes tecnologías:
 - **Cloud Build:** Para construir el proyecto cuando se detecta un commit en la rama **main** de github.
 - **Cloud Run:** Para levantar un contenedor en base a la imagen Docker creada previamente con Cloud Build.
+
+## Recursos
+
+Adjunto en el repositorio encontrará una carpeta de recursos que incluye lo siguiente:
+- Postman collection con requests de ejemplo para las diferentes operaciones sobre el API REST.
+- data.csv archivo con productos de ejemplo para ser cargados.
